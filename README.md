@@ -12,6 +12,7 @@ A Lovelace custom card for Home Assistant that shows freezer and fridge temperat
 - Multiple fridge layouts: `default`, `inverted`, `dual_door`, `freezer`
 - Visual editor support in Lovelace
 - Works with one or two sensors: `freezer_entity` and/or `fridge_entity`
+- Clickable temperature readings that open the Home Assistant entity history/more-info dialog
 - Graceful fallback for missing, `unknown`, and `unavailable` entities
 - Installable with HACS as a custom `Dashboard` repository
 
