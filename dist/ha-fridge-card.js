@@ -550,14 +550,14 @@ o4?.({ LitElement: i4 });
 (s3.litElementVersions ?? (s3.litElementVersions = [])).push("4.2.2");
 
 // src/ha-fridge-card.css
-var ha_fridge_card_default = ':host {\n  display: block;\n}\n\nha-card {\n  position: relative;\n  overflow: hidden;\n  padding: 20px 18px 18px;\n}\n\n.card-shell {\n  display: grid;\n  gap: 18px;\n}\n\n.setup-shell {\n  min-height: 180px;\n}\n\n.heading {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 12px;\n}\n\n.title {\n  margin: 0;\n  color: var(--primary-text-color);\n  font-size: 1rem;\n  font-weight: 600;\n  letter-spacing: 0.01em;\n  text-align: center;\n}\n\n.body {\n  display: grid;\n  place-items: center;\n}\n\n.setup-state {\n  display: grid;\n  place-items: center;\n  gap: 8px;\n  min-height: 120px;\n  padding: 18px;\n  border-radius: 18px;\n  background: rgba(var(--rgb-primary-text-color), 0.04);\n  text-align: center;\n}\n\n.setup-title {\n  margin: 0;\n  color: var(--primary-text-color);\n  font-size: 1rem;\n  font-weight: 600;\n}\n\n.setup-copy {\n  margin: 0;\n  max-width: 260px;\n  color: var(--secondary-text-color);\n  font-size: 0.9rem;\n  line-height: 1.45;\n}\n\n.setup-copy code {\n  padding: 0.1rem 0.35rem;\n  border-radius: 0.4rem;\n  background: rgba(var(--rgb-primary-text-color), 0.08);\n  color: var(--primary-text-color);\n  font-family: "Consolas", "SFMono-Regular", monospace;\n  font-size: 0.92em;\n}\n\n.fridge {\n  position: relative;\n  color: #132030;\n}\n\n.fridge-photo-frame {\n  position: relative;\n  width: min(100%, 192px);\n  height: 387px;\n  border-radius: 18px 18px 12px 12px;\n  overflow: hidden;\n  background: rgba(255, 255, 255, 0.92);\n  box-shadow:\n    0 12px 30px rgba(0, 0, 0, 0.16),\n    inset 0 0 0 1px rgba(116, 135, 158, 0.12);\n}\n\n.fridge-svg {\n  width: 100%;\n  height: 100%;\n  display: block;\n}\n\n.readings {\n  position: absolute;\n  inset: 0;\n  pointer-events: none;\n}\n\n.reading {\n  position: absolute;\n  width: 96px;\n  transform: translate(-50%, -50%);\n  display: grid;\n  justify-items: center;\n  gap: 6px;\n  padding: 8px 10px;\n  border-radius: 14px;\n  background: rgba(255, 255, 255, 0.55);\n  backdrop-filter: blur(4px);\n  -webkit-backdrop-filter: blur(4px);\n}\n\n.reading.clickable {\n  cursor: pointer;\n  pointer-events: auto;\n  transition:\n    transform 160ms ease,\n    box-shadow 160ms ease,\n    background 160ms ease;\n}\n\n.reading.clickable:hover {\n  transform: translate(-50%, -50%) translateY(-1px);\n  background: rgba(255, 255, 255, 0.68);\n  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.12);\n}\n\n.reading.clickable:focus-visible {\n  outline: none;\n  box-shadow:\n    0 0 0 2px rgba(var(--rgb-primary-color), 0.5),\n    0 8px 20px rgba(15, 23, 42, 0.12);\n}\n\n.section-label {\n  margin: 0;\n  color: rgba(19, 32, 48, 0.72);\n  font-size: 0.52rem;\n  font-weight: 600;\n  letter-spacing: 0.08em;\n  text-transform: uppercase;\n  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.55);\n}\n\n.temperature {\n  display: inline-flex;\n  align-items: flex-start;\n  gap: 4px;\n  color: #102031;\n  font-size: clamp(1.45rem, 4vw, 1.95rem);\n  font-weight: 700;\n  line-height: 0.95;\n  letter-spacing: -0.03em;\n  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);\n}\n\n.temperature.placeholder {\n  color: rgba(16, 32, 49, 0.42);\n}\n\n.unit {\n  color: rgba(16, 32, 49, 0.7);\n  font-size: 0.92rem;\n  font-weight: 600;\n  letter-spacing: 0;\n  transform: translateY(0.22rem);\n}\n\n.reading.zone-freezer .temperature {\n  color: #0f3f75;\n}\n\n.reading.zone-fridge .temperature {\n  color: #125b6d;\n}\n\n.feet {\n  display: flex;\n  justify-content: space-between;\n  padding: 0 12px;\n  margin-top: -2px;\n  pointer-events: none;\n}\n\n.foot {\n  width: 20px;\n  height: 6px;\n  border-radius: 0 0 6px 6px;\n  background: linear-gradient(180deg, rgba(173, 182, 193, 0.98), rgba(120, 129, 140, 0.92));\n  box-shadow:\n    inset 0 1px 0 rgba(255, 255, 255, 0.55),\n    0 1px 2px rgba(0, 0, 0, 0.2);\n}\n\n@media (max-width: 420px) {\n  ha-card {\n    padding-inline: 14px;\n  }\n\n  .fridge-photo-frame {\n    width: min(100%, 176px);\n    height: 356px;\n  }\n}\n';
+var ha_fridge_card_default = ':host {\n  display: block;\n}\n\nha-card {\n  position: relative;\n  overflow: hidden;\n  padding: 20px 18px 18px;\n}\n\n.card-shell {\n  display: grid;\n  gap: 18px;\n}\n\n.setup-shell {\n  min-height: 180px;\n}\n\n.heading {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 12px;\n}\n\n.title {\n  margin: 0;\n  color: var(--primary-text-color);\n  font-size: 1rem;\n  font-weight: 600;\n  letter-spacing: 0.01em;\n  text-align: center;\n}\n\n.body {\n  display: grid;\n  place-items: center;\n}\n\n.setup-state {\n  display: grid;\n  place-items: center;\n  gap: 8px;\n  min-height: 120px;\n  padding: 18px;\n  border-radius: 18px;\n  background: rgba(var(--rgb-primary-text-color), 0.04);\n  text-align: center;\n}\n\n.setup-title {\n  margin: 0;\n  color: var(--primary-text-color);\n  font-size: 1rem;\n  font-weight: 600;\n}\n\n.setup-copy {\n  margin: 0;\n  max-width: 260px;\n  color: var(--secondary-text-color);\n  font-size: 0.9rem;\n  line-height: 1.45;\n}\n\n.setup-copy code {\n  padding: 0.1rem 0.35rem;\n  border-radius: 0.4rem;\n  background: rgba(var(--rgb-primary-text-color), 0.08);\n  color: var(--primary-text-color);\n  font-family: "Consolas", "SFMono-Regular", monospace;\n  font-size: 0.92em;\n}\n\n.fridge {\n  position: relative;\n  color: #132030;\n  width: min(100%, 192px);\n  margin-inline: auto;\n}\n\n.fridge-photo-frame {\n  position: relative;\n  width: 100%;\n  height: auto;\n  border-radius: 18px 18px 12px 12px;\n  overflow: hidden;\n  background: rgba(255, 255, 255, 0.92);\n  box-shadow:\n    0 12px 30px rgba(0, 0, 0, 0.16),\n    inset 0 0 0 1px rgba(116, 135, 158, 0.12);\n}\n\n.fridge-svg {\n  width: 100%;\n  height: auto;\n  display: block;\n}\n\n.readings {\n  position: absolute;\n  inset: 0;\n  pointer-events: none;\n}\n\n.reading {\n  position: absolute;\n  width: 96px;\n  transform: translate(-50%, -50%);\n  display: grid;\n  justify-items: center;\n  gap: 6px;\n  padding: 8px 10px;\n  border-radius: 14px;\n  background: rgba(255, 255, 255, 0.55);\n  backdrop-filter: blur(4px);\n  -webkit-backdrop-filter: blur(4px);\n}\n\n.reading.clickable {\n  cursor: pointer;\n  pointer-events: auto;\n  transition:\n    transform 160ms ease,\n    box-shadow 160ms ease,\n    background 160ms ease;\n}\n\n.reading.clickable:hover {\n  transform: translate(-50%, -50%) translateY(-1px);\n  background: rgba(255, 255, 255, 0.68);\n  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.12);\n}\n\n.reading.clickable:focus-visible {\n  outline: none;\n  box-shadow:\n    0 0 0 2px rgba(var(--rgb-primary-color), 0.5),\n    0 8px 20px rgba(15, 23, 42, 0.12);\n}\n\n.section-label {\n  margin: 0;\n  color: rgba(19, 32, 48, 0.72);\n  font-size: 0.52rem;\n  font-weight: 600;\n  letter-spacing: 0.08em;\n  text-transform: uppercase;\n  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.55);\n}\n\n.temperature {\n  display: inline-flex;\n  align-items: flex-start;\n  gap: 4px;\n  color: #102031;\n  font-size: clamp(1.45rem, 4vw, 1.95rem);\n  font-weight: 700;\n  line-height: 0.95;\n  letter-spacing: -0.03em;\n  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);\n}\n\n.temperature.placeholder {\n  color: rgba(16, 32, 49, 0.42);\n}\n\n.unit {\n  color: rgba(16, 32, 49, 0.7);\n  font-size: 0.92rem;\n  font-weight: 600;\n  letter-spacing: 0;\n  transform: translateY(0.22rem);\n}\n\n.reading.zone-freezer .temperature {\n  color: #0f3f75;\n}\n\n.reading.zone-fridge .temperature {\n  color: #125b6d;\n}\n\n.feet {\n  display: flex;\n  justify-content: space-between;\n  padding: 0 12px;\n  margin-top: -2px;\n  pointer-events: none;\n}\n\n.foot {\n  width: 20px;\n  height: 6px;\n  border-radius: 0 0 6px 6px;\n  background: linear-gradient(180deg, rgba(173, 182, 193, 0.98), rgba(120, 129, 140, 0.92));\n  box-shadow:\n    inset 0 1px 0 rgba(255, 255, 255, 0.55),\n    0 1px 2px rgba(0, 0, 0, 0.2);\n}\n\n.layout-side_by_side .reading {\n  width: 58px;\n  max-width: calc(50% - 16px);\n  padding: 5px 6px;\n  gap: 3px;\n  border-radius: 12px;\n}\n\n.layout-side_by_side .section-label {\n  font-size: 0.46rem;\n  letter-spacing: 0.05em;\n}\n\n.layout-side_by_side .temperature {\n  font-size: clamp(0.95rem, 2.8vw, 1.35rem);\n}\n\n.layout-side_by_side .unit {\n  font-size: 0.72rem;\n}\n\n@media (max-width: 420px) {\n  ha-card {\n    padding-inline: 14px;\n  }\n\n  .fridge {\n    width: min(100%, 176px);\n  }\n}\n';
 
 // src/ha-fridge-card.ts
 var CARD_TYPE = "ha-fridge-card";
 var INVALID_STATES = /* @__PURE__ */ new Set(["unknown", "unavailable", "none"]);
 var VIEWBOX_WIDTH = 192;
 var VIEWBOX_HEIGHT = 387;
-var LAYOUTS = ["default", "freezer", "inverted", "dual_door"];
+var LAYOUTS = ["default", "freezer", "inverted", "dual_door", "side_by_side"];
 var LAYOUT_ZONES = {
   default: {
     freezer: { x: 10, y: 8, width: 172, height: 108 },
@@ -573,6 +573,10 @@ var LAYOUT_ZONES = {
   dual_door: {
     freezer: { x: 10, y: 269, width: 172, height: 108 },
     fridge: { x: 10, y: 8, width: 172, height: 253 }
+  },
+  side_by_side: {
+    freezer: { x: 10, y: 56, width: 84, height: 88 },
+    fridge: { x: 98, y: 56, width: 84, height: 88 }
   }
 };
 var FRIDGE_SVGS = {
@@ -625,6 +629,18 @@ var FRIDGE_SVGS = {
       <rect x="10" y="269" width="172" height="108" rx="10" stroke="#D1D8E0" stroke-width="1" />
       <rect x="26" y="299" width="6" height="48" rx="3" fill="#B8C2CC" />
     </svg>
+  `,
+  side_by_side: b2`
+    <svg class="fridge-svg" viewBox="0 0 192 387" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <rect x="4" y="4" width="184" height="379" rx="14" fill="#E8ECF0" stroke="#C4CDD6" stroke-width="1.5" />
+      <rect x="10" y="8" width="84" height="371" rx="10" fill="#F4F6F8" />
+      <rect x="10" y="8" width="84" height="371" rx="10" stroke="#D1D8E0" stroke-width="1" />
+      <rect x="82" y="140" width="6" height="70" rx="3" fill="#B8C2CC" />
+      <line x1="96" y1="8" x2="96" y2="379" stroke="#BCC5CF" stroke-width="1.5" />
+      <rect x="98" y="8" width="84" height="371" rx="10" fill="#F7F9FB" />
+      <rect x="98" y="8" width="84" height="371" rx="10" stroke="#D1D8E0" stroke-width="1" />
+      <rect x="104" y="140" width="6" height="70" rx="3" fill="#B8C2CC" />
+    </svg>
   `
 };
 var HaFridgeCard = class extends i4 {
@@ -641,6 +657,7 @@ var HaFridgeCard = class extends i4 {
                 { value: "default", label: "Freezer on top" },
                 { value: "inverted", label: "Fridge on top" },
                 { value: "dual_door", label: "French door" },
+                { value: "side_by_side", label: "Side by side" },
                 { value: "freezer", label: "Freezer only" }
               ]
             }
