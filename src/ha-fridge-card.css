@@ -1,0 +1,195 @@
+:host {
+  display: block;
+}
+
+ha-card {
+  position: relative;
+  overflow: hidden;
+  padding: 20px 18px 18px;
+}
+
+.card-shell {
+  display: grid;
+  gap: 18px;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.title {
+  margin: 0;
+  color: var(--primary-text-color);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-align: center;
+}
+
+.body {
+  display: grid;
+  place-items: center;
+}
+
+.fridge {
+  position: relative;
+  color: #132030;
+  width: min(100%, 192px);
+  margin-inline: auto;
+  container-type: inline-size;
+}
+
+.fridge-photo-frame {
+  position: relative;
+  width: 100%;
+  height: auto;
+  border-radius: 18px 18px 12px 12px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.16),
+    inset 0 0 0 1px rgba(116, 135, 158, 0.12);
+}
+
+.fridge-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.readings {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.reading {
+  position: absolute;
+  width: 96px;
+  transform: translate(-50%, -50%);
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  padding: 8px 10px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.reading.clickable {
+  cursor: pointer;
+  pointer-events: auto;
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    background 160ms ease;
+}
+
+.reading.clickable:hover {
+  transform: translate(-50%, -50%) translateY(-1px);
+  background: rgba(255, 255, 255, 0.68);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.12);
+}
+
+.reading.clickable:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px rgba(var(--rgb-primary-color), 0.5),
+    0 8px 20px rgba(15, 23, 42, 0.12);
+}
+
+.section-label {
+  margin: 0;
+  color: rgba(19, 32, 48, 0.72);
+  font-size: 0.52rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.55);
+}
+
+.temperature {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 4px;
+  color: #102031;
+  font-size: clamp(1.45rem, 4vw, 1.95rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
+}
+
+.temperature.placeholder {
+  color: rgba(16, 32, 49, 0.42);
+}
+
+.unit {
+  color: rgba(16, 32, 49, 0.7);
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  transform: translateY(0.22rem);
+}
+
+.reading.zone-freezer .temperature {
+  color: #0f3f75;
+}
+
+.reading.zone-fridge .temperature {
+  color: #125b6d;
+}
+
+.feet {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 12px;
+  margin-top: -2px;
+  pointer-events: none;
+}
+
+.foot {
+  width: 20px;
+  height: 6px;
+  border-radius: 0 0 6px 6px;
+  background: linear-gradient(180deg, rgba(173, 182, 193, 0.98), rgba(120, 129, 140, 0.92));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.55),
+    0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.layout-side_by_side .reading {
+  /* each door is ~44% of the fridge; size readings from the fridge width, not the viewport */
+  width: 40cqw;
+  padding: 5px 2px;
+  gap: 3px;
+  border-radius: 12px;
+}
+
+.layout-side_by_side .section-label {
+  font-size: 0.46rem;
+  letter-spacing: 0.05em;
+}
+
+.layout-side_by_side .temperature {
+  gap: 2px;
+  font-size: 11cqw;
+}
+
+.layout-side_by_side .unit {
+  font-size: 5.5cqw;
+}
+
+@media (max-width: 420px) {
+  ha-card {
+    padding-inline: 14px;
+  }
+
+  .fridge {
+    width: min(100%, 176px);
+  }
+}

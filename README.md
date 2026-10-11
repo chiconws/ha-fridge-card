@@ -85,6 +85,13 @@ fridge_entity: sensor.fridge_temperature
 - If an entity is missing or unavailable, the card shows `--`.
 - If only one entity is configured, the card hides the other temperature zone automatically.
 
+## Development
+
+```sh
+npm install
+npm run build   # src/ -> dist/ha-fridge-card.js
+```
+
 ## HACS Validation
 
 This repository includes a HACS validation workflow in [.github/workflows/hacs.yaml](.github/workflows/hacs.yaml).
