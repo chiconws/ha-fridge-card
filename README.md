@@ -67,6 +67,8 @@ freezer_entity: sensor.freezer_temperature
 fridge_entity: sensor.fridge_temperature
 ```
 
+![Side-by-side layout preview](assets/side-by-side-preview.png)
+
 ## Options
 
 | Name | Required | Description |
