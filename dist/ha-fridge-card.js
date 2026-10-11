@@ -708,7 +708,7 @@ var HaFridgeCard = class extends i4 {
         <div class="card-shell">
           <h3 class="title">${this._config.title}</h3>
 
-          <div class="fridge layout-${layout}" role="img" aria-label=${cardLabel}>
+          <div class="fridge layout-${layout}" role="group" aria-label=${cardLabel}>
             <div class="fridge-photo-frame">
               ${FRIDGE_SVGS[layout]}
 
