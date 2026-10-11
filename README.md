@@ -9,9 +9,10 @@ A Lovelace custom card for Home Assistant that shows freezer and fridge temperat
 ## Features
 
 - Simple Home Assistant-style visual
-- Multiple fridge layouts: `default`, `inverted`, `dual_door`, `freezer`
+- Multiple fridge layouts: `default`, `inverted`, `dual_door`, `side_by_side`, `freezer`
 - Visual editor support in Lovelace
 - Works with one or two sensors: `freezer_entity` and/or `fridge_entity`
+- Clickable temperature readings that open the Home Assistant entity history/more-info dialog
 - Graceful fallback for missing, `unknown`, and `unavailable` entities
 - Installable with HACS as a custom `Dashboard` repository
 
@@ -56,6 +57,18 @@ freezer_entity: sensor.freezer_temperature
 fridge_entity: sensor.fridge_temperature
 ```
 
+Side-by-side example (freezer left, fridge right):
+
+```yaml
+type: custom:ha-fridge-card
+title: Fridge
+layout: side_by_side
+freezer_entity: sensor.freezer_temperature
+fridge_entity: sensor.fridge_temperature
+```
+
+![Side-by-side layout preview](assets/side-by-side-preview.png)
+
 ## Options
 
 | Name | Required | Description |
@@ -63,7 +76,7 @@ fridge_entity: sensor.fridge_temperature
 | `freezer_entity` | No* | Entity ID for the freezer temperature sensor |
 | `fridge_entity` | No* | Entity ID for the fridge temperature sensor |
 | `title` | No | Card title. Default: `Fridge` |
-| `layout` | No | Fridge illustration layout. Options: `default`, `inverted`, `dual_door`, `freezer` |
+| `layout` | No | Fridge illustration layout. Options: `default`, `inverted`, `dual_door`, `side_by_side`, `freezer` |
 
 \* Configure at least one of `freezer_entity` or `fridge_entity`. When `layout: freezer`, `freezer_entity` is required.
 
@@ -73,6 +86,13 @@ fridge_entity: sensor.fridge_temperature
 - If a unit is missing, it falls back to `°C`.
 - If an entity is missing or unavailable, the card shows `--`.
 - If only one entity is configured, the card hides the other temperature zone automatically.
+
+## Development
+
+```sh
+npm install
+npm run build   # src/ -> dist/ha-fridge-card.js
+```
 
 ## HACS Validation
 
