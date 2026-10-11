@@ -549,7 +549,10 @@ var CARD_TYPE = "ha-fridge-card";
 var INVALID_STATES = /* @__PURE__ */ new Set(["unknown", "unavailable", "none"]);
 var VIEWBOX_WIDTH = 192;
 var VIEWBOX_HEIGHT = 387;
-var LAYOUTS = ["default", "freezer", "inverted", "dual_door", "side_by_side"];
+var INVERTED_ZONES = {
+  freezer: { x: 10, y: 269, width: 172, height: 108 },
+  fridge: { x: 10, y: 8, width: 172, height: 253 }
+};
 var LAYOUT_ZONES = {
   default: {
     freezer: { x: 10, y: 8, width: 172, height: 108 },
@@ -558,14 +561,8 @@ var LAYOUT_ZONES = {
   freezer: {
     freezer: { x: 10, y: 8, width: 172, height: 371 }
   },
-  inverted: {
-    freezer: { x: 10, y: 269, width: 172, height: 108 },
-    fridge: { x: 10, y: 8, width: 172, height: 253 }
-  },
-  dual_door: {
-    freezer: { x: 10, y: 269, width: 172, height: 108 },
-    fridge: { x: 10, y: 8, width: 172, height: 253 }
-  },
+  inverted: INVERTED_ZONES,
+  dual_door: INVERTED_ZONES,
   side_by_side: {
     freezer: { x: 10, y: 56, width: 84, height: 88 },
     fridge: { x: 98, y: 56, width: 84, height: 88 }
@@ -635,6 +632,12 @@ var FRIDGE_SVGS = {
     </svg>
   `
 };
+var LABELS = {
+  title: "Title",
+  layout: "Layout",
+  freezer_entity: "Freezer sensor",
+  fridge_entity: "Fridge sensor"
+};
 var HaFridgeCard = class extends i4 {
   static getConfigForm() {
     return {
@@ -672,20 +675,7 @@ var HaFridgeCard = class extends i4 {
           }
         }
       ],
-      computeLabel: (schema) => {
-        switch (schema.name) {
-          case "title":
-            return "Title";
-          case "layout":
-            return "Layout";
-          case "freezer_entity":
-            return "Freezer sensor";
-          case "fridge_entity":
-            return "Fridge sensor";
-          default:
-            return void 0;
-        }
-      }
+      computeLabel: (schema) => LABELS[schema.name]
     };
   }
   static getStubConfig() {
@@ -718,7 +708,7 @@ var HaFridgeCard = class extends i4 {
     if (!this._config) {
       return A;
     }
-    const layout = this.normalizeLayout(this._config.layout);
+    const { layout } = this._config;
     const zones = LAYOUT_ZONES[layout];
     const showFridge = Boolean(zones.fridge) && Boolean(this._config.fridge_entity || !this._config.freezer_entity);
     const showFreezer = Boolean(this._config.freezer_entity || !this._config.fridge_entity) || !showFridge;
@@ -800,15 +790,12 @@ var HaFridgeCard = class extends i4 {
     return "Fridge temperature";
   }
   normalizeLayout(layout) {
-    if (layout && LAYOUTS.includes(layout)) {
+    if (layout && Object.keys(LAYOUT_ZONES).includes(layout)) {
       return layout;
     }
     return "default";
   }
   readingStyle(zone) {
-    if (!zone) {
-      return "";
-    }
     const left = (zone.x + zone.width / 2) / VIEWBOX_WIDTH * 100;
     const top = (zone.y + zone.height / 2) / VIEWBOX_HEIGHT * 100;
     return `left:${left}%;top:${top}%;`;
@@ -833,44 +820,15 @@ var HaFridgeCard = class extends i4 {
     );
   }
   getDisplayState(entityId) {
-    if (!entityId) {
-      return {
-        stateText: "--",
-        unitText: "\xB0C",
-        isPlaceholder: true
-      };
-    }
-    const entity = this.hass?.states?.[entityId];
-    if (!entity) {
-      return {
-        stateText: "--",
-        unitText: "",
-        isPlaceholder: true
-      };
-    }
-    const rawState = entity.state?.trim();
+    const entity = entityId ? this.hass?.states?.[entityId] : void 0;
+    const rawState = entity?.state?.trim();
     if (!rawState || INVALID_STATES.has(rawState.toLowerCase())) {
-      return {
-        stateText: "--",
-        unitText: "",
-        isPlaceholder: true
-      };
+      return { stateText: "--", unitText: entityId ? "" : "\xB0C", isPlaceholder: true };
     }
     const numeric = Number.parseFloat(rawState);
-    const unit = this.getUnit(entity);
-    if (!Number.isNaN(numeric)) {
-      return {
-        stateText: new Intl.NumberFormat(void 0, {
-          minimumFractionDigits: 1,
-          maximumFractionDigits: 1
-        }).format(numeric),
-        unitText: unit,
-        isPlaceholder: false
-      };
-    }
     return {
-      stateText: rawState,
-      unitText: unit,
+      stateText: Number.isNaN(numeric) ? rawState : numeric.toLocaleString(void 0, { minimumFractionDigits: 1, maximumFractionDigits: 1 }),
+      unitText: this.getUnit(entity),
       isPlaceholder: false
     };
   }

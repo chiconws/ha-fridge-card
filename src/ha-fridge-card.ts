@@ -28,7 +28,10 @@ const CARD_TYPE = "ha-fridge-card";
 const INVALID_STATES = new Set(["unknown", "unavailable", "none"]);
 const VIEWBOX_WIDTH = 192;
 const VIEWBOX_HEIGHT = 387;
-const LAYOUTS: Layout[] = ["default", "freezer", "inverted", "dual_door", "side_by_side"];
+const INVERTED_ZONES = {
+  freezer: { x: 10, y: 269, width: 172, height: 108 },
+  fridge: { x: 10, y: 8, width: 172, height: 253 }
+};
 const LAYOUT_ZONES: Record<Layout, { freezer: Zone; fridge?: Zone }> = {
   default: {
     freezer: { x: 10, y: 8, width: 172, height: 108 },
@@ -37,14 +40,8 @@ const LAYOUT_ZONES: Record<Layout, { freezer: Zone; fridge?: Zone }> = {
   freezer: {
     freezer: { x: 10, y: 8, width: 172, height: 371 }
   },
-  inverted: {
-    freezer: { x: 10, y: 269, width: 172, height: 108 },
-    fridge: { x: 10, y: 8, width: 172, height: 253 }
-  },
-  dual_door: {
-    freezer: { x: 10, y: 269, width: 172, height: 108 },
-    fridge: { x: 10, y: 8, width: 172, height: 253 }
-  },
+  inverted: INVERTED_ZONES,
+  dual_door: INVERTED_ZONES,
   side_by_side: {
     freezer: { x: 10, y: 56, width: 84, height: 88 },
     fridge: { x: 98, y: 56, width: 84, height: 88 }
@@ -114,6 +111,12 @@ const FRIDGE_SVGS = {
     </svg>
   `
 };
+const LABELS: Record<string, string> = {
+  title: "Title",
+  layout: "Layout",
+  freezer_entity: "Freezer sensor",
+  fridge_entity: "Fridge sensor"
+};
 class HaFridgeCard extends LitElement {
   static properties = {
     hass: { attribute: false }
@@ -121,7 +124,7 @@ class HaFridgeCard extends LitElement {
   static styles = unsafeCSS(styles);
 
   hass?: any;
-  private _config?: CardConfig;
+  private _config?: CardConfig & { layout: Layout };
 
   static getConfigForm() {
     return {
@@ -159,20 +162,7 @@ class HaFridgeCard extends LitElement {
           }
         }
       ],
-      computeLabel: (schema: { name: string }) => {
-        switch (schema.name) {
-          case "title":
-            return "Title";
-          case "layout":
-            return "Layout";
-          case "freezer_entity":
-            return "Freezer sensor";
-          case "fridge_entity":
-            return "Fridge sensor";
-          default:
-            return undefined;
-        }
-      }
+      computeLabel: (schema: { name: string }) => LABELS[schema.name]
     };
   }
   static getStubConfig(): CardConfig {
@@ -205,7 +195,7 @@ class HaFridgeCard extends LitElement {
     if (!this._config) {
       return nothing;
     }
-    const layout = this.normalizeLayout(this._config.layout);
+    const { layout } = this._config;
     const zones = LAYOUT_ZONES[layout];
     // With a single entity configured, hide the other zone; with none, show both as placeholders.
     const showFridge = Boolean(zones.fridge) && Boolean(this._config.fridge_entity || !this._config.freezer_entity);
@@ -246,7 +236,7 @@ class HaFridgeCard extends LitElement {
                   ${showFridge ? html`
                         <section
                           class=${this.readingClass(Boolean(this._config.fridge_entity), "zone-fridge")}
-                          style=${this.readingStyle(zones.fridge)}
+                          style=${this.readingStyle(zones.fridge!)}
                           role=${this._config.fridge_entity ? "button" : "presentation"}
                           tabindex=${this._config.fridge_entity ? "0" : "-1"}
                           @click=${() => this.showMoreInfo(this._config?.fridge_entity)}
@@ -288,15 +278,12 @@ class HaFridgeCard extends LitElement {
     return "Fridge temperature";
   }
   normalizeLayout(layout?: string): Layout {
-    if (layout && (LAYOUTS as string[]).includes(layout)) {
+    if (layout && Object.keys(LAYOUT_ZONES).includes(layout)) {
       return layout as Layout;
     }
     return "default";
   }
-  readingStyle(zone?: Zone) {
-    if (!zone) {
-      return "";
-    }
+  readingStyle(zone: Zone) {
     const left = (zone.x + zone.width / 2) / VIEWBOX_WIDTH * 100;
     const top = (zone.y + zone.height / 2) / VIEWBOX_HEIGHT * 100;
     return `left:${left}%;top:${top}%;`;
@@ -321,44 +308,17 @@ class HaFridgeCard extends LitElement {
     );
   }
   getDisplayState(entityId?: string): DisplayState {
-    if (!entityId) {
-      return {
-        stateText: "--",
-        unitText: "\xB0C",
-        isPlaceholder: true
-      };
-    }
-    const entity = this.hass?.states?.[entityId];
-    if (!entity) {
-      return {
-        stateText: "--",
-        unitText: "",
-        isPlaceholder: true
-      };
-    }
-    const rawState = entity.state?.trim();
+    const entity = entityId ? this.hass?.states?.[entityId] : undefined;
+    const rawState = entity?.state?.trim();
     if (!rawState || INVALID_STATES.has(rawState.toLowerCase())) {
-      return {
-        stateText: "--",
-        unitText: "",
-        isPlaceholder: true
-      };
+      return { stateText: "--", unitText: entityId ? "" : "\xB0C", isPlaceholder: true };
     }
     const numeric = Number.parseFloat(rawState);
-    const unit = this.getUnit(entity);
-    if (!Number.isNaN(numeric)) {
-      return {
-        stateText: new Intl.NumberFormat(undefined, {
-          minimumFractionDigits: 1,
-          maximumFractionDigits: 1
-        }).format(numeric),
-        unitText: unit,
-        isPlaceholder: false
-      };
-    }
     return {
-      stateText: rawState,
-      unitText: unit,
+      stateText: Number.isNaN(numeric)
+        ? rawState
+        : numeric.toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 1 }),
+      unitText: this.getUnit(entity),
       isPlaceholder: false
     };
   }
