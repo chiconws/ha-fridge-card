@@ -52,61 +52,51 @@ const FRIDGE_SVGS = {
   <svg class="fridge-svg" viewBox="0 0 192 387" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <rect x="4" y="4" width="184" height="379" rx="14" fill="#E8ECF0" stroke="#C4CDD6" stroke-width="1.5" />
 
-    <rect x="10" y="8" width="172" height="108" rx="10" fill="#F4F6F8" />
-    <rect x="10" y="8" width="172" height="108" rx="10" stroke="#D1D8E0" stroke-width="1" />
+    <rect x="10" y="8" width="172" height="108" rx="10" fill="#F4F6F8" stroke="#D1D8E0" stroke-width="1" />
     <rect x="26" y="38" width="6" height="48" rx="3" fill="#B8C2CC" />
 
     <line x1="10" y1="120" x2="182" y2="120" stroke="#BCC5CF" stroke-width="1.5" />
 
-    <rect x="10" y="124" width="172" height="253" rx="10" fill="#F7F9FB" />
-    <rect x="10" y="124" width="172" height="253" rx="10" stroke="#D1D8E0" stroke-width="1" />
+    <rect x="10" y="124" width="172" height="253" rx="10" fill="#F7F9FB" stroke="#D1D8E0" stroke-width="1" />
     <rect x="26" y="194" width="6" height="60" rx="3" fill="#B8C2CC" />
   </svg>
 `,
   freezer: html`
     <svg class="fridge-svg" viewBox="0 0 192 387" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <rect x="4" y="4" width="184" height="379" rx="14" fill="#E8ECF0" stroke="#C4CDD6" stroke-width="1.5" />
-      <rect x="10" y="8" width="172" height="371" rx="10" fill="#edf1f5" />
-      <rect x="10" y="8" width="172" height="371" rx="10" stroke="#D1D8E0" stroke-width="1" />
+      <rect x="10" y="8" width="172" height="371" rx="10" fill="#edf1f5" stroke="#D1D8E0" stroke-width="1" />
       <rect x="26" y="140" width="6" height="70" rx="3" fill="#B8C2CC" />
     </svg>
   `,
   inverted: html`
     <svg class="fridge-svg" viewBox="0 0 192 387" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <rect x="4" y="4" width="184" height="379" rx="14" fill="#E8ECF0" stroke="#C4CDD6" stroke-width="1.5" />
-      <rect x="10" y="8" width="172" height="253" rx="10" fill="#F7F9FB" />
-      <rect x="10" y="8" width="172" height="253" rx="10" stroke="#D1D8E0" stroke-width="1" />
+      <rect x="10" y="8" width="172" height="253" rx="10" fill="#F7F9FB" stroke="#D1D8E0" stroke-width="1" />
       <rect x="26" y="80" width="6" height="60" rx="3" fill="#B8C2CC" />
       <line x1="10" y1="265" x2="182" y2="265" stroke="#BCC5CF" stroke-width="1.5" />
-      <rect x="10" y="269" width="172" height="108" rx="10" fill="#F4F6F8" />
-      <rect x="10" y="269" width="172" height="108" rx="10" stroke="#D1D8E0" stroke-width="1" />
+      <rect x="10" y="269" width="172" height="108" rx="10" fill="#F4F6F8" stroke="#D1D8E0" stroke-width="1" />
       <rect x="26" y="299" width="6" height="48" rx="3" fill="#B8C2CC" />
     </svg>
   `,
   dual_door: html`
     <svg class="fridge-svg" viewBox="0 0 192 387" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <rect x="4" y="4" width="184" height="379" rx="14" fill="#E8ECF0" stroke="#C4CDD6" stroke-width="1.5" />
-      <rect x="10" y="8" width="84" height="253" rx="10" fill="#F7F9FB" />
-      <rect x="10" y="8" width="84" height="253" rx="10" stroke="#D1D8E0" stroke-width="1" />
+      <rect x="10" y="8" width="84" height="253" rx="10" fill="#F7F9FB" stroke="#D1D8E0" stroke-width="1" />
       <rect x="82" y="80" width="6" height="60" rx="3" fill="#B8C2CC" />
-      <rect x="98" y="8" width="84" height="253" rx="10" fill="#F7F9FB" />
-      <rect x="98" y="8" width="84" height="253" rx="10" stroke="#D1D8E0" stroke-width="1" />
+      <rect x="98" y="8" width="84" height="253" rx="10" fill="#F7F9FB" stroke="#D1D8E0" stroke-width="1" />
       <rect x="104" y="80" width="6" height="60" rx="3" fill="#B8C2CC" />
       <line x1="10" y1="265" x2="182" y2="265" stroke="#BCC5CF" stroke-width="1.5" />
-      <rect x="10" y="269" width="172" height="108" rx="10" fill="#F4F6F8" />
-      <rect x="10" y="269" width="172" height="108" rx="10" stroke="#D1D8E0" stroke-width="1" />
+      <rect x="10" y="269" width="172" height="108" rx="10" fill="#F4F6F8" stroke="#D1D8E0" stroke-width="1" />
       <rect x="26" y="299" width="6" height="48" rx="3" fill="#B8C2CC" />
     </svg>
   `,
   side_by_side: html`
     <svg class="fridge-svg" viewBox="0 0 192 387" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <rect x="4" y="4" width="184" height="379" rx="14" fill="#E8ECF0" stroke="#C4CDD6" stroke-width="1.5" />
-      <rect x="10" y="8" width="84" height="371" rx="10" fill="#F4F6F8" />
-      <rect x="10" y="8" width="84" height="371" rx="10" stroke="#D1D8E0" stroke-width="1" />
+      <rect x="10" y="8" width="84" height="371" rx="10" fill="#F4F6F8" stroke="#D1D8E0" stroke-width="1" />
       <rect x="82" y="140" width="6" height="70" rx="3" fill="#B8C2CC" />
       <line x1="96" y1="8" x2="96" y2="379" stroke="#BCC5CF" stroke-width="1.5" />
-      <rect x="98" y="8" width="84" height="371" rx="10" fill="#F7F9FB" />
-      <rect x="98" y="8" width="84" height="371" rx="10" stroke="#D1D8E0" stroke-width="1" />
+      <rect x="98" y="8" width="84" height="371" rx="10" fill="#F7F9FB" stroke="#D1D8E0" stroke-width="1" />
       <rect x="104" y="140" width="6" height="70" rx="3" fill="#B8C2CC" />
     </svg>
   `
@@ -200,82 +190,51 @@ class HaFridgeCard extends LitElement {
     // With a single entity configured, hide the other zone; with none, show both as placeholders.
     const showFridge = Boolean(zones.fridge) && Boolean(this._config.fridge_entity || !this._config.freezer_entity);
     const showFreezer = Boolean(this._config.freezer_entity || !this._config.fridge_entity) || !showFridge;
-    const freezer = this.getDisplayState(this._config.freezer_entity);
-    const fridge = showFridge ? this.getDisplayState(this._config.fridge_entity) : null;
-    const cardLabel = this.cardLabel(showFreezer, showFridge);
+    const cardLabel = !showFridge
+      ? "Freezer temperature"
+      : showFreezer
+        ? "Fridge and freezer temperatures"
+        : "Fridge temperature";
     return html`
       <ha-card>
         <div class="card-shell">
-          <div class="heading">
-            <h3 class="title">${this._config.title}</h3>
-          </div>
+          <h3 class="title">${this._config.title}</h3>
 
-          <div class="body">
-            <div class="fridge layout-${layout}" role="img" aria-label=${cardLabel}>
-              <div class="fridge-photo-frame">
-                ${FRIDGE_SVGS[layout]}
+          <div class="fridge layout-${layout}" role="img" aria-label=${cardLabel}>
+            <div class="fridge-photo-frame">
+              ${FRIDGE_SVGS[layout]}
 
-                <div class="readings">
-                  ${showFreezer ? html`
-                        <section
-                          class=${this.readingClass(Boolean(this._config.freezer_entity), "zone-freezer")}
-                          style=${this.readingStyle(zones.freezer)}
-                          role=${this._config.freezer_entity ? "button" : "presentation"}
-                          tabindex=${this._config.freezer_entity ? "0" : "-1"}
-                          @click=${() => this.showMoreInfo(this._config?.freezer_entity)}
-                          @keydown=${(event: KeyboardEvent) => this.handleReadingKeydown(event, this._config?.freezer_entity)}
-                        >
-                          <p class="section-label">Freezer</p>
-                          <div class=${this.temperatureClass(freezer)}>
-                            <span>${freezer.stateText}</span>
-                            ${freezer.unitText ? html`<span class="unit">${freezer.unitText}</span>` : nothing}
-                          </div>
-                        </section>
-                      ` : nothing}
-
-                  ${showFridge ? html`
-                        <section
-                          class=${this.readingClass(Boolean(this._config.fridge_entity), "zone-fridge")}
-                          style=${this.readingStyle(zones.fridge!)}
-                          role=${this._config.fridge_entity ? "button" : "presentation"}
-                          tabindex=${this._config.fridge_entity ? "0" : "-1"}
-                          @click=${() => this.showMoreInfo(this._config?.fridge_entity)}
-                          @keydown=${(event: KeyboardEvent) => this.handleReadingKeydown(event, this._config?.fridge_entity)}
-                        >
-                          <p class="section-label">Fridge</p>
-                          <div class=${this.temperatureClass(fridge!)}>
-                            <span>${fridge!.stateText}</span>
-                            ${fridge!.unitText ? html`<span class="unit">${fridge!.unitText}</span>` : nothing}
-                          </div>
-                        </section>
-                      ` : nothing}
-                </div>
+              <div class="readings">
+                ${showFreezer ? this.renderReading("Freezer", "zone-freezer", zones.freezer, this._config.freezer_entity) : nothing}
+                ${showFridge ? this.renderReading("Fridge", "zone-fridge", zones.fridge!, this._config.fridge_entity) : nothing}
               </div>
+            </div>
 
-              <div class="feet" aria-hidden="true">
-                <span class="foot"></span>
-                <span class="foot"></span>
-              </div>
+            <div class="feet" aria-hidden="true">
+              <span class="foot"></span>
+              <span class="foot"></span>
             </div>
           </div>
         </div>
       </ha-card>
     `;
   }
-  temperatureClass(displayState: DisplayState) {
-    return displayState.isPlaceholder ? "temperature placeholder" : "temperature";
-  }
-  readingClass(clickable: boolean, zoneClass: string) {
-    return clickable ? `reading ${zoneClass} clickable` : `reading ${zoneClass}`;
-  }
-  cardLabel(showFreezer: boolean, showFridge: boolean) {
-    if (showFreezer && showFridge) {
-      return "Fridge and freezer temperatures";
-    }
-    if (showFreezer) {
-      return "Freezer temperature";
-    }
-    return "Fridge temperature";
+  renderReading(label: string, zoneClass: string, zone: Zone, entityId?: string) {
+    const state = this.getDisplayState(entityId);
+    return html`
+      <button
+        class="reading ${zoneClass}"
+        style=${this.readingStyle(zone)}
+        ?disabled=${!entityId}
+        @click=${() => this.showMoreInfo(entityId)}
+      >
+        <span class="section-label">${label}</span>
+        <span class=${state.isPlaceholder ? "temperature placeholder" : "temperature"}>
+          <span>${state.stateText}</span>
+          ${state.unitText ? html`<span class="unit">${state.unitText}</span>` : nothing}
+        </span>
+      </button>
+    `;
   }
   normalizeLayout(layout?: string): Layout {
     if (layout && Object.keys(LAYOUT_ZONES).includes(layout)) {
@@ -287,13 +246,6 @@ class HaFridgeCard extends LitElement {
     const left = (zone.x + zone.width / 2) / VIEWBOX_WIDTH * 100;
     const top = (zone.y + zone.height / 2) / VIEWBOX_HEIGHT * 100;
     return `left:${left}%;top:${top}%;`;
-  }
-  handleReadingKeydown(event: KeyboardEvent, entityId?: string) {
-    if (event.key !== "Enter" && event.key !== " ") {
-      return;
-    }
-    event.preventDefault();
-    this.showMoreInfo(entityId);
   }
   showMoreInfo(entityId?: string) {
     if (!entityId) {

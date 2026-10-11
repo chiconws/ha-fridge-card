@@ -13,13 +13,6 @@ ha-card {
   gap: 18px;
 }
 
-.heading {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-}
-
 .title {
   margin: 0;
   color: var(--primary-text-color);
@@ -29,14 +22,8 @@ ha-card {
   text-align: center;
 }
 
-.body {
-  display: grid;
-  place-items: center;
-}
-
 .fridge {
   position: relative;
-  color: #132030;
   width: min(100%, 192px);
   margin-inline: auto;
   container-type: inline-size;
@@ -45,7 +32,6 @@ ha-card {
 .fridge-photo-frame {
   position: relative;
   width: 100%;
-  height: auto;
   border-radius: 18px 18px 12px 12px;
   overflow: hidden;
   background: rgba(255, 255, 255, 0.92);
@@ -68,7 +54,11 @@ ha-card {
 
 .reading {
   position: absolute;
+  box-sizing: content-box;
   width: 96px;
+  margin: 0;
+  border: 0;
+  font: inherit;
   transform: translate(-50%, -50%);
   display: grid;
   justify-items: center;
@@ -80,7 +70,7 @@ ha-card {
   -webkit-backdrop-filter: blur(4px);
 }
 
-.reading.clickable {
+.reading:enabled {
   cursor: pointer;
   pointer-events: auto;
   transition:
@@ -89,13 +79,13 @@ ha-card {
     background 160ms ease;
 }
 
-.reading.clickable:hover {
+.reading:enabled:hover {
   transform: translate(-50%, -50%) translateY(-1px);
   background: rgba(255, 255, 255, 0.68);
   box-shadow: 0 8px 20px rgba(15, 23, 42, 0.12);
 }
 
-.reading.clickable:focus-visible {
+.reading:enabled:focus-visible {
   outline: none;
   box-shadow:
     0 0 0 2px rgba(var(--rgb-primary-color), 0.5),
@@ -149,7 +139,6 @@ ha-card {
   justify-content: space-between;
   padding: 0 12px;
   margin-top: -2px;
-  pointer-events: none;
 }
 
 .foot {
