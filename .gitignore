@@ -4,3 +4,6 @@ preview-dev.log
 docker-compose.yml
 preview/
 config/
+
+# Local-only editor settings
+.vscode/
