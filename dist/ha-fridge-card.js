@@ -796,7 +796,7 @@ var customCards = window.customCards ?? (window.customCards = []);
 if (!customCards.some((card) => card.type === CARD_TYPE)) {
   customCards.push({
     type: CARD_TYPE,
-    name: "HA Fridge Card",
+    name: "Fridge Card",
     description: "Fridge and freezer temperatures with multiple fridge layout options.",
     preview: true
   });

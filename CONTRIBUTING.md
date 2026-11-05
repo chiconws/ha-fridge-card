@@ -1,4 +1,4 @@
-# Contributing to HA Fridge Card
+# Contributing to Fridge Card
 
 Thanks for helping.
 

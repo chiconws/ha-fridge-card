@@ -1,10 +1,10 @@
-# HA Fridge Card
+# Fridge Card
 
 A Lovelace custom card for Home Assistant that shows freezer and fridge temperatures in a clean, minimal fridge illustration.
 
 ## Preview
 
-![HA Fridge Card preview](assets/image.png)
+![Fridge Card preview](assets/image.png)
 
 ## Features
 
@@ -23,7 +23,7 @@ A Lovelace custom card for Home Assistant that shows freezer and fridge temperat
 [![Open your Home Assistant instance and open this repository in the Marketplace.](https://my.home-assistant.io/badges/marketplace_repository.svg)](https://my.home-assistant.io/redirect/marketplace_repository/?owner=chiconws&repository=ha-fridge-card&category=plugin)
 
 1. Click the button above. If Home Assistant asks, confirm adding the repository.
-2. Download **HA Fridge Card** in **Settings → Marketplace**.
+2. Download **Fridge Card** in **Settings → Marketplace**.
 3. Reload the browser if requested.
 
 On Home Assistant 2026.10 or older, use HACS instead:
