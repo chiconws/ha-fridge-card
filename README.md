@@ -93,10 +93,7 @@ fridge_entity: sensor.fridge_temperature
 
 ## Development
 
-```sh
-npm install
-npm run build   # src/ -> dist/ha-fridge-card.js
-```
+See [CONTRIBUTING.md](CONTRIBUTING.md) for setup, build and releases.
 
 ## HACS Validation
 
