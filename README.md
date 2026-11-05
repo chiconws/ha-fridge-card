@@ -28,6 +28,7 @@ A Lovelace custom card for Home Assistant that shows freezer and fridge temperat
 
 On Home Assistant 2026.10 or older, use HACS instead:
 [![Open your Home Assistant instance and open this repository in HACS.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=chiconws&repository=ha-fridge-card&category=plugin)
+Then download **Fridge Card** in HACS and reload the browser if requested.
 
 If the resource is not added automatically, add it manually:
 
