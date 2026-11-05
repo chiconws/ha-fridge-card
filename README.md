@@ -14,27 +14,31 @@ A Lovelace custom card for Home Assistant that shows freezer and fridge temperat
 - Works with one or two sensors: `freezer_entity` and/or `fridge_entity`
 - Clickable temperature readings that open the Home Assistant entity history/more-info dialog
 - Graceful fallback for missing, `unknown`, and `unavailable` entities
-- Installable with HACS as a custom `Dashboard` repository
+- Installable from the Home Assistant Marketplace (or HACS on 2026.10 and older) as a custom `Dashboard` repository
 
-## Installation with HACS
+## Installation
 
-1. Open HACS.
-2. Go to the custom repositories menu.
-3. Add the URL of this repository.
-4. Select `Dashboard` as the category.
-5. Install `HA Fridge Card`.
-6. Restart Home Assistant if requested.
+### Marketplace (recommended)
+
+[![Open your Home Assistant instance and open this repository in the Marketplace.](https://my.home-assistant.io/badges/marketplace_repository.svg)](https://my.home-assistant.io/redirect/marketplace_repository/?owner=chiconws&repository=ha-fridge-card&category=plugin)
+
+1. Click the button above. If Home Assistant asks, confirm adding the repository.
+2. Download **HA Fridge Card** in **Settings → Marketplace**.
+3. Reload the browser if requested.
+
+On Home Assistant 2026.10 or older, use HACS instead:
+[![Open your Home Assistant instance and open this repository in HACS.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=chiconws&repository=ha-fridge-card&category=plugin)
 
 If the resource is not added automatically, add it manually:
 
 ```yaml
 lovelace:
   resources:
-    - url: /hacsfiles/ha-fridge-card/ha-fridge-card.js
+    - url: /local/community/ha-fridge-card/ha-fridge-card.js
       type: module
 ```
 
-## Manual installation
+### Manual
 
 1. Copy `dist/ha-fridge-card.js` to:
    `/config/www/community/ha-fridge-card/ha-fridge-card.js`
@@ -100,4 +104,4 @@ This repository includes a HACS validation workflow in [.github/workflows/hacs.y
 
 ## Releases
 
-For stable HACS distribution, publish GitHub Releases with an updated `dist/ha-fridge-card.js`.
+For Marketplace and HACS distribution, publish GitHub Releases with an updated `dist/ha-fridge-card.js`.
