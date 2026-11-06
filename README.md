@@ -92,6 +92,13 @@ fridge_entity: sensor.fridge_temperature
 - If an entity is missing or unavailable, the card shows `--`.
 - If only one entity is configured, the card hides the other temperature zone automatically.
 
+## Removal
+
+1. Remove the card from your dashboards.
+2. Remove **Fridge Card** in **Settings → Marketplace** (or HACS). If you installed it
+   manually, delete `/config/www/community/ha-fridge-card/` and its dashboard resource.
+3. Reload the browser.
+
 ## Development
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for setup, build and releases.
