@@ -95,8 +95,9 @@ fridge_entity: sensor.fridge_temperature
 ## Removal
 
 1. Remove the card from your dashboards.
-2. Remove **Fridge Card** in **Settings → Marketplace** (or HACS). If you installed it
-   manually, delete `/config/www/community/ha-fridge-card/` and its dashboard resource.
+2. Remove **Fridge Card** in **Settings → Marketplace** (or HACS), or delete
+   `/config/www/community/ha-fridge-card/` if you installed it manually. Delete the
+   dashboard resource too if you added it by hand.
 3. Reload the browser.
 
 ## Development
